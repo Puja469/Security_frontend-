@@ -1,7 +1,7 @@
 import react from '@vitejs/plugin-react';
-import { defineConfig } from 'vite';
 import fs from 'fs';
 import path from 'path';
+import { defineConfig } from 'vite';
 
 // Full HTTPS + Proxy Setup for Local Development
 export default defineConfig({
