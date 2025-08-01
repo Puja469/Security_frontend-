@@ -2,7 +2,7 @@
 
 A modern, secure, and user-friendly thrift store web application built with React, Vite, and comprehensive security features.
 
-## 🚀 Features
+## Features
 
 ### Core Functionality
 - **User Authentication & Authorization** - Secure login/registration with role-based access
@@ -12,57 +12,33 @@ A modern, secure, and user-friendly thrift store web application built with Reac
 - **Responsive Design** - Mobile-first approach with Tailwind CSS
 - **Dark Mode Support** - Theme switching capability
 
-## 🔒 Comprehensive Security Features
+### Security Features
+- **Multi-layered Security Architecture** - Comprehensive protection at every level
+- **CAPTCHA Protection** - Smart CAPTCHA implementation for high-risk operations
+- **Brute Force Protection** - Account lockout after failed attempts
+- **Rate Limiting** - Request throttling to prevent abuse
+- **Input Validation & Sanitization** - XSS and injection attack prevention
+- **Password Security** - Advanced password strength requirements
+- **Session Management** - Secure session handling with encryption
+- **Activity Logging** - Comprehensive security event tracking
 
-### 1. **Multi-Factor Authentication (MFA)**
-- **TOTP Support**: Time-based One-Time Password with authenticator apps
-- **SMS Verification**: Phone number-based OTP delivery
-- **Email Verification**: Email-based OTP delivery
-- **QR Code Generation**: Easy setup for authenticator apps
-- **MFA Lockout Protection**: Separate brute force protection for MFA attempts
-- **Flexible MFA Types**: Support for multiple verification methods
+## Security Features Implemented
 
-### 2. **Advanced CAPTCHA Protection**
-- **Smart CAPTCHA Triggering**: Only activates when security threats are detected
-- **Admin Login CAPTCHA**: Required after 2 failed login attempts
+### 1. **Authentication & Authorization Security**
+
+#### CAPTCHA Protection
+- **Admin Login CAPTCHA**: Required after 2 failed attempts
 - **User Registration CAPTCHA**: Triggered on registration failures
-- **Reusable CAPTCHA Component**: Consistent implementation across the app
-- **Visual CAPTCHA**: 6-character alphanumeric codes with refresh capability
-- **Accessibility Features**: User-friendly CAPTCHA interface
+- **Smart Triggering**: Only shows when security threats are detected
+- **Reusable Component**: Consistent CAPTCHA implementation across the app
 
-### 3. **Brute Force Protection System**
-- **Maximum Attempts**: 5 failed login attempts before lockout
-- **Lockout Duration**: 15-minute account lockout period
+#### Brute Force Protection
+- **Maximum Attempts**: 5 failed login attempts
+- **Lockout Duration**: 15-minute account lockout
 - **OTP Protection**: Separate, more lenient protection for OTP verification
 - **Automatic Reset**: Lockout clears after successful login
-- **Identifier-based Tracking**: Tracks attempts by email/IP
-- **Progressive Security**: Increases security measures with failed attempts
 
-### 4. **Rate Limiting & Request Protection**
-- **General Rate Limit**: 100 requests per 15 minutes
-- **OTP Rate Limit**: 20 requests per 10 minutes (more lenient)
-- **IP-based Tracking**: Request tracking by identifier
-- **Automatic Reset**: Limits reset after time window
-- **Request Throttling**: Prevents API abuse and DDoS attacks
-- **Dynamic Rate Limiting**: Adjusts based on user behavior
-
-### 5. **Input Validation & Sanitization**
-- **XSS Prevention**: HTML escaping and content filtering
-- **Input Sanitization**: Removes malicious HTML, scripts, and event handlers
-- **Data Validation**: Comprehensive validation for all user inputs
-- **Content Security Policy**: Strict CSP headers implementation
-- **DOMPurify Integration**: Advanced HTML sanitization
-- **Real-time Validation**: Instant feedback on input quality
-
-### 6. **CSRF Protection**
-- **CSRF Token Generation**: Cryptographically secure token generation
-- **Token Validation**: Server-side token verification
-- **Automatic Token Refresh**: Regular token rotation
-- **Sensitive Operation Protection**: All POST/PUT/DELETE operations protected
-- **CSRF Hook**: React hook for easy CSRF integration
-- **Token Status Monitoring**: Real-time token validity checking
-
-### 7. **Password Security**
+#### Password Security
 - **Strength Requirements**:
   - Minimum 8 characters, maximum 128 characters
   - Must contain uppercase, lowercase, numbers, and special characters
@@ -70,74 +46,61 @@ A modern, secure, and user-friendly thrift store web application built with Reac
   - Real-time strength indicator
 - **Client-side Hashing**: SHA-256 hashing before server transmission
 - **Password Validation**: Comprehensive validation with detailed feedback
-- **Password Strength Indicator**: Visual feedback on password strength
-- **Secure Password Storage**: Encrypted password handling
 
-### 8. **Session & Data Security**
+### 2. **Rate Limiting & Request Protection**
+
+#### Request Throttling
+- **General Rate Limit**: 100 requests per 15 minutes
+- **OTP Rate Limit**: 20 requests per 10 minutes (more lenient)
+- **IP-based Tracking**: Request tracking by identifier
+- **Automatic Reset**: Limits reset after time window
+
+#### Input Security
+- **Input Sanitization**: Removes malicious HTML, scripts, and event handlers
+- **XSS Prevention**: HTML escaping and content filtering
+- **CSRF Protection**: CSRF token generation and validation
+- **Data Validation**: Comprehensive validation for all user inputs
+
+### 3. **Session & Data Security**
+
+#### Session Management
 - **Encrypted Sessions**: AES encryption for session data
 - **Session Timeout**: 30-minute automatic timeout
 - **Secure Storage**: Encrypted localStorage usage
 - **Activity Tracking**: Last activity monitoring
-- **Session Invalidation**: Automatic session cleanup
+
+#### Data Protection
+- **Client-side Encryption**: AES encryption for sensitive data
 - **Secure Token Generation**: Cryptographically secure tokens
+- **Data Sanitization**: All user inputs are sanitized
+- **Content Security Policy**: Strict CSP headers
 
-### 9. **Role-Based Access Control (RBAC)**
-- **User Roles**: User, Admin, Moderator with distinct permissions
+### 4. **Role-Based Access Control (RBAC)**
+
+#### User Roles
+- **User**: Basic permissions for product management
+- **Admin**: Full system access and management
+- **Moderator**: Content moderation capabilities
+
+#### Permission System
 - **Granular Permissions**: Fine-grained access control
-- **Permission Inheritance**: Role-based permission inheritance
+- **Inheritance**: Role-based permission inheritance
 - **Dynamic Checking**: Real-time permission validation
-- **Protected Routes**: Route-level access control
-- **Admin Dashboard**: Secure admin-only functionality
 
-### 10. **Content Moderation & Security**
-- **Content Moderation System**: Automated content filtering
-- **Profanity Filter**: Inappropriate language detection
-- **Spam Detection**: Automated spam identification
-- **Content Scoring**: Risk assessment for user-generated content
-- **Moderation Dashboard**: Admin tools for content management
-- **Real-time Filtering**: Instant content validation
+### 5. **Monitoring & Logging**
 
-### 11. **Privacy & Data Protection**
-- **Privacy Controls**: User-configurable privacy settings
-- **Cookie Consent Management**: GDPR-compliant consent handling
-- **Data Export**: User data export functionality
-- **Data Deletion**: Right to be forgotten implementation
-- **Privacy Mode**: Enhanced privacy features
-- **Do Not Track**: Respect for user tracking preferences
+#### Activity Logging
+- **Comprehensive Tracking**: All security events logged
+- **User Actions**: Login, registration, password changes
+- **Admin Actions**: User management, system changes
+- **Security Events**: Failed attempts, suspicious activity
 
-### 12. **Security Monitoring & Analytics**
-- **Activity Logging**: Comprehensive security event tracking
-- **Security Dashboard**: Real-time security status monitoring
-- **Security Alerts**: Immediate notification of security events
-- **Security Audit**: Comprehensive security assessment tools
+#### Security Analytics
+- **Real-time Monitoring**: Live security event tracking
+- **Pattern Detection**: Suspicious behavior identification
 - **Performance Metrics**: CAPTCHA effectiveness tracking
-- **Threat Detection**: Suspicious behavior identification
 
-### 13. **API Security**
-- **Secure API Client**: Axios with built-in security features
-- **Request Interceptors**: Automatic security header injection
-- **Response Validation**: Server response integrity checking
-- **Error Handling**: Secure error message handling
-- **API Rate Limiting**: Endpoint-specific rate limiting
-- **Request Sanitization**: Automatic request data cleaning
-
-### 14. **Client-Side Security**
-- **Error Boundaries**: React error boundary implementation
-- **Secure Context**: Protected React context providers
-- **Component Security**: Security-focused component design
-- **State Protection**: Secure state management
-- **Memory Protection**: Secure memory handling
-- **DOM Security**: Protected DOM manipulation
-
-### 15. **Development & Testing Security**
-- **Security Testing**: Comprehensive security test suite
-- **Code Quality**: ESLint security rules
-- **Dependency Security**: Regular dependency vulnerability scanning
-- **Security Documentation**: Comprehensive security documentation
-- **Security Guidelines**: Development security best practices
-- **Security Review Process**: Code review security requirements
-
-## 🛠️ Technical Stack
+## Technical Stack
 
 ### Frontend
 - **React 18** - Modern React with hooks and context
@@ -151,32 +114,23 @@ A modern, secure, and user-friendly thrift store web application built with Reac
 - **CryptoJS** - Cryptographic functions
 - **DOMPurify** - HTML sanitization
 - **React Hook Form** - Form validation and handling
-- **Axios** - Secure HTTP client
-- **React Icons** - UI icons for security components
 
 ### Development Tools
 - **ESLint** - Code linting and quality
 - **Playwright** - End-to-end testing
 - **PostCSS** - CSS processing
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 thrift_store_web/
 ├── src/
 │   ├── components/          # Reusable UI components
 │   │   ├── Captcha.jsx     # CAPTCHA component
-│   │   ├── MFAVerification.jsx # Multi-factor authentication
-│   │   ├── SecurityDashboard.jsx # Security monitoring
-│   │   ├── ContentModeration.jsx # Content filtering
-│   │   ├── PrivacySettings.jsx # Privacy controls
-│   │   ├── SecurityAlert.jsx # Security notifications
-│   │   ├── SecurityAudit.jsx # Security assessment
 │   │   ├── ProtectedRoute.jsx # Route protection
 │   │   └── ...
 │   ├── context/            # React context providers
 │   │   ├── AuthContext.jsx # Authentication state
-│   │   ├── RateLimitContext.jsx # Rate limiting state
 │   │   └── ...
 │   ├── core/               # Core application logic
 │   │   ├── private/        # Protected routes
@@ -184,22 +138,16 @@ thrift_store_web/
 │   │   │   └── users/      # User functionality
 │   │   └── public/         # Public routes
 │   ├── services/           # API services
-│   │   ├── apiServices.js  # Secure API client
-│   │   └── adminApi.js     # Admin API services
 │   ├── utils/              # Utility functions
-│   │   ├── security.js     # Core security utilities
-│   │   ├── apiSecurity.js  # API security middleware
-│   │   ├── csrfManager.js  # CSRF token management
-│   │   ├── dataProtection.js # Data protection utilities
-│   │   └── ...
-│   ├── hooks/              # Custom React hooks
-│   │   └── useCSRF.js      # CSRF protection hook
+│   │   └── security.js     # Security utilities
 │   └── socket/             # Socket.io configuration
 ├── tests/                  # Test files
+├── docs/                   # Documentation
+│   └── CAPTCHA_GUIDELINES.md
 └── public/                 # Static assets
 ```
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - Node.js (v16 or higher)
@@ -234,7 +182,7 @@ thrift_store_web/
    npm test
    ```
 
-## 🔧 Configuration
+## Configuration
 
 ### Security Configuration
 
@@ -257,14 +205,6 @@ PASSWORD_CONFIG = {
 // Rate Limiting
 RATE_LIMIT_REQUESTS: 100,
 RATE_LIMIT_WINDOW_MS: 15 * 60 * 1000 // 15 minutes
-
-// MFA Configuration
-MFA_CONFIG = {
-  MAX_ATTEMPTS: 3,
-  LOCKOUT_DURATION: 5 * 60 * 1000, // 5 minutes
-  OTP_LENGTH: 6,
-  TOTP_PERIOD: 30
-}
 ```
 
 ### Environment Variables
@@ -276,12 +216,10 @@ VITE_API_BASE_URL=https://localhost:3000/api
 
 # Features
 VITE_ENABLE_CAPTCHA=true
-VITE_ENABLE_MFA=true
 VITE_ENABLE_ANALYTICS=true
-VITE_ENABLE_CONTENT_MODERATION=true
 ```
 
-## 🧪 Testing
+## Testing
 
 ### Security Testing
 ```bash
@@ -298,13 +236,10 @@ npm run test:ui
 ### Manual Security Testing
 1. **Brute Force Protection**: Try multiple failed login attempts
 2. **CAPTCHA Functionality**: Trigger CAPTCHA in admin login
-3. **MFA Testing**: Test multi-factor authentication flows
-4. **Input Validation**: Test with malicious inputs
-5. **Session Security**: Test session timeout and encryption
-6. **Content Moderation**: Test content filtering features
-7. **Privacy Controls**: Test privacy settings functionality
+3. **Input Validation**: Test with malicious inputs
+4. **Session Security**: Test session timeout and encryption
 
-## 📊 Security Monitoring
+## Security Monitoring
 
 ### Activity Logs
 Security events are logged and can be monitored:
@@ -312,42 +247,33 @@ Security events are logged and can be monitored:
 - Registration events
 - Admin actions
 - Suspicious activity
-- MFA verification attempts
-- Content moderation events
-- Privacy setting changes
 
 ### Performance Metrics
 - CAPTCHA success rates
-- MFA adoption rates
 - Rate limiting effectiveness
 - User abandonment rates
 - Security event frequency
-- Content moderation accuracy
 
-## 🔄 Security Updates
+## Security Updates
 
 ### Regular Updates
 - **Dependencies**: Regular security updates
 - **Security Rules**: Updated based on threat intelligence
 - **CAPTCHA Logic**: Improved based on bot detection
 - **Rate Limiting**: Adjusted based on usage patterns
-- **MFA Enhancements**: Improved authentication methods
-- **Content Moderation**: Updated filtering rules
 
 ### Security Audits
 - **Code Reviews**: Regular security-focused reviews
 - **Penetration Testing**: Periodic security assessments
 - **Dependency Audits**: Automated vulnerability scanning
-- **Security Dashboard**: Real-time security monitoring
 
-## 🤝 Contributing
+## Contributing
 
 ### Security Guidelines
 1. **Follow Security Best Practices**: Always validate inputs
 2. **Test Security Features**: Ensure new features don't compromise security
 3. **Document Changes**: Update security documentation
 4. **Code Review**: All changes require security review
-5. **Security Testing**: Include security tests for new features
 
 ### Development Workflow
 1. Fork the repository
@@ -356,16 +282,16 @@ Security events are logged and can be monitored:
 4. Add tests for security features
 5. Submit a pull request
 
-## 📚 Documentation
+## Documentation
 
+- **[CAPTCHA Guidelines](./docs/CAPTCHA_GUIDELINES.md)** - Comprehensive CAPTCHA implementation guide
 - **[Security Utilities](./src/utils/security.js)** - Security function documentation
 - **[API Documentation](./src/services/)** - API service documentation
-- **[Security Components](./src/components/)** - Security component documentation
 
-## 🛡️ Security Features Checklist
+## Security Features Checklist
 
-### ✅ Implemented
-- [x] Multi-factor authentication (TOTP, SMS, Email)
+### Implemented
+- [x] Multi-factor authentication (OTP)
 - [x] CAPTCHA protection for high-risk operations
 - [x] Brute force protection with account lockout
 - [x] Rate limiting and request throttling
@@ -377,44 +303,32 @@ Security events are logged and can be monitored:
 - [x] Comprehensive activity logging
 - [x] Secure token generation
 - [x] Client-side data encryption
-- [x] Content moderation system
-- [x] Privacy controls and GDPR compliance
-- [x] Security dashboard and monitoring
-- [x] Security alerts and notifications
-- [x] Security audit tools
-- [x] API security middleware
-- [x] Error boundaries and protection
-- [x] Secure React context providers
 
-### 🔄 Planned
-- [ ] Advanced bot detection with machine learning
-- [ ] Enhanced CAPTCHA types (reCAPTCHA v3, hCaptcha)
-- [ ] Biometric authentication support
-- [ ] Advanced threat detection algorithms
+### Planned
+- [ ] Advanced bot detection
+- [ ] Machine learning-based threat detection
+- [ ] Enhanced CAPTCHA types
 - [ ] Security analytics dashboard
 - [ ] Automated security monitoring
-- [ ] Zero-knowledge proof authentication
-- [ ] Hardware security key support (WebAuthn)
 
-## 📞 Support
+## Support
 
 For security-related issues or questions:
 - **Security Issues**: Report via GitHub issues
-- **Documentation**: Check the security utilities
-- **Code Examples**: See the security components
+- **Documentation**: Check the docs folder
+- **Code Examples**: See the security utilities
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Security best practices from OWASP
 - React security guidelines
 - Modern web security standards
 - Community security contributions
-- Multi-factor authentication standards (TOTP, RFC 6238)
 
 ---
 
-**⚠️ Security Notice**: This application implements comprehensive security measures, but security is an ongoing process. Regular updates and monitoring are essential for maintaining security standards. All security features are designed to protect user data and prevent unauthorized access while maintaining a smooth user experience.
+**Security Notice**: This application implements comprehensive security measures, but security is an ongoing process. Regular updates and monitoring are essential for maintaining security standards.
